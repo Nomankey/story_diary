@@ -1,0 +1,24 @@
+{
+  "name": "story_diary",
+  "version": "1.0.0",
+  "description": "an web application that save short videos in a form of personal diary",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nomankey/story_diary.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nomankey/story_diary/issues"
+  },
+  "homepage": "https://github.com/Nomankey/story_diary#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
