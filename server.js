@@ -1,31 +1,21 @@
-const express = require('express');
-const fs = require('fs'); //file system
+// var http = require("http");
 
 
-const app = express();
 
-app.get('/video', (req, res) => {
-    const range = req.header.range;
-    const videoPath = '';
-    const videoSize = fs.statSync(videoPath).size;
+// http.createServer((req,res) => {
+//     res.writeHead(201, {"Content-Type": "text/plain"}); //http status:200, content-type이 응답 헤더
+//     res.write("guten tag");
+//     res.end();
+// }).listen(8080)
 
-    const dataSize = 1 * 1e+6;
-    const start = Number(range.replace(/\D/g, ''));
-    const end = Math.min(start + dataSize, videoSize - 1);
+// //event-driven-callback
+// const onRequest = (req, res) => {
+//     console.log("request received");
+//     res.writeHead(200, {"Content-Type": "text/plain"});
+//     res.write("Hello World");
+//     res.end();
+// }
 
-    const contentLength = end - start + 1;
+// http.createServer(onRequest).listen(8888);
 
-    const headers = {
-        "Content-Range": `bytes ${start}-${end}/${videoSize}`,
-        "Accept-Range": "bytes",
-        "Content-Length": contentLength,
-        "Content-Type": "video/mp4"
-    };
-    res.writeHead(206, headers);
 
-    const stream = fs.createReadStream(videoPath, { start, end })
-    stream.pipe(res)
-
-});
-
-app.listen('4000');
